@@ -1,4 +1,3 @@
-// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault()
@@ -12,7 +11,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   })
 })
 
-// Navbar visibility on scroll
 let lastScroll = 0
 const navbar = document.getElementById("navbar")
 
@@ -21,10 +19,8 @@ window.addEventListener("scroll", () => {
 
   if (currentScroll > 100) {
     if (currentScroll > lastScroll) {
-      // Scrolling down
       navbar.classList.remove("visible")
     } else {
-      // Scrolling up
       navbar.classList.add("visible")
     }
   } else {
@@ -34,7 +30,6 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll
 })
 
-// Scroll indicator click
 document.querySelector(".scroll-indicator")?.addEventListener("click", () => {
   window.scrollTo({
     top: window.innerHeight,
@@ -42,7 +37,6 @@ document.querySelector(".scroll-indicator")?.addEventListener("click", () => {
   })
 })
 
-// Intersection Observer for fade-in animations
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px",
@@ -57,12 +51,10 @@ const observer = new IntersectionObserver((entries) => {
   })
 }, observerOptions)
 
-// Observe elements for animation
 document.querySelectorAll(".data-card, .article, .stat-item, .cta-card").forEach((el) => {
   observer.observe(el)
 })
 
-// Add parallax effect to hero
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset
   const hero = document.querySelector(".hero")
@@ -71,7 +63,6 @@ window.addEventListener("scroll", () => {
   }
 })
 
-// Counter animation for data numbers (if you add real numbers later)
 function animateCounter(element, target, duration) {
   let start = 0
   const increment = target / (duration / 16)
@@ -87,7 +78,6 @@ function animateCounter(element, target, duration) {
   }, 16)
 }
 
-// Observe data cards for counter animation
 const dataObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -95,7 +85,6 @@ const dataObserver = new IntersectionObserver(
         const number = entry.target.querySelector(".data-number")
         if (number && !number.classList.contains("animated")) {
           number.classList.add("animated")
-          // You can add counter animation here when you have real numbers
         }
       }
     })
@@ -107,6 +96,5 @@ document.querySelectorAll(".data-card").forEach((card) => {
   dataObserver.observe(card)
 })
 
-// Console log for debugging
 console.log("[v0] Webdoc loaded successfully")
 console.log("[v0] All interactive features initialized")
