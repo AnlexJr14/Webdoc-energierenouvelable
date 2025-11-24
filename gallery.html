@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Énergies Renouvelables</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar visible" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Énergies Renouvelables</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#intro">Introduction</a></li>
+                <li><a href="index.html#article1">Autonomie Énergétique</a></li>
+                <li><a href="index.html#data">Données</a></li>
+                <li><a href="index.html#article2">Transition en France</a></li>
+                <li><a href="gallery.html" class="active">Galerie</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="gallery-hero">
+        <div class="gallery-hero-content">
+            <h1 class="gallery-title">Galerie Photos</h1>
+            <p class="gallery-subtitle">Découvrez les visages et les lieux de la transition énergétique en France</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="panneaux">Panneaux Solaires</button>
+                <button class="filter-btn" data-filter="installations">Installations</button>
+                <button class="filter-btn" data-filter="paysages">Paysages</button>
+                <button class="filter-btn" data-filter="personnes">Personnes</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Photo 1 -->
+                <div class="gallery-item" data-category="panneaux">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Panneaux solaires sur toit" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Panneaux solaires résidentiels</h3>
+                            <p class="gallery-item-caption">Installation photovoltaïque sur une maison en Drôme</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="gallery-item" data-category="installations">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Installation en cours" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Installation en cours</h3>
+                            <p class="gallery-item-caption">Pose de panneaux solaires par des professionnels</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="gallery-item" data-category="paysages">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Centrale solaire" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Centrale solaire</h3>
+                            <p class="gallery-item-caption">Parc photovoltaïque dans le sud de la France</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="gallery-item" data-category="personnes">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Famille avec panneaux solaires" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Famille autonome</h3>
+                            <p class="gallery-item-caption">Claire et Mathieu devant leur installation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="gallery-item" data-category="panneaux">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Panneaux sur bâtiment public" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Bâtiment public équipé</h3>
+                            <p class="gallery-item-caption">École avec toiture solaire à Bordeaux</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="gallery-item" data-category="installations">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Batterie de stockage" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Système de stockage</h3>
+                            <p class="gallery-item-caption">Batterie domestique pour l'autoconsommation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="gallery-item" data-category="paysages">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Paysage avec panneaux" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Intégration paysagère</h3>
+                            <p class="gallery-item-caption">Panneaux solaires dans un environnement rural</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="gallery-item" data-category="personnes">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Installateur" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Métier d'avenir</h3>
+                            <p class="gallery-item-caption">Roméo, installateur de panneaux solaires</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 9 -->
+                <div class="gallery-item" data-category="panneaux">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Panneaux sur maison moderne" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Architecture moderne</h3>
+                            <p class="gallery-item-caption">Maison contemporaine avec intégration solaire</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 10 -->
+                <div class="gallery-item" data-category="installations">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Contrôleur de production" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Suivi de production</h3>
+                            <p class="gallery-item-caption">Application de monitoring en temps réel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 11 -->
+                <div class="gallery-item" data-category="paysages">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Champ de panneaux" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Parc solaire</h3>
+                            <p class="gallery-item-caption">Vue aérienne d'une centrale photovoltaïque</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo 12 -->
+                <div class="gallery-item" data-category="personnes">
+                    <div class="gallery-item-inner">
+                        <img src="/placeholder.svg?height=600&width=800" alt="Aïcha" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-item-title">Transition personnelle</h3>
+                            <p class="gallery-item-caption">Aïcha et sa famille en périphérie parisienne</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev">&#8249;</button>
+        <button class="lightbox-next" id="lightboxNext">&#8250;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxText"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Énergies Renouvelables - Webdocumentaire</p>
+            <p>Un projet sur la transition énergétique en France</p>
+        </div>
+    </footer>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
+
