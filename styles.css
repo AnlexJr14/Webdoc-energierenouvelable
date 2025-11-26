@@ -333,7 +333,8 @@ h6 {
   margin: 3rem 0;
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
   border-radius: 8px;
@@ -556,6 +557,7 @@ h6 {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -563,10 +565,12 @@ h6 {
 }
 
 @keyframes scrollAnimation {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(10px);
   }
@@ -952,6 +956,7 @@ h6 {
   .gallery-title {
     font-size: 2rem;
     letter-spacing: 2px;
+    font-style: italic;
   }
 
   .gallery-grid {
@@ -967,5 +972,333 @@ h6 {
   .filter-btn {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+}
+
+.lightbox-caption h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.lightbox-caption p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 3rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-close:hover {
+  transform: rotate(90deg);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--white);
+  font-size: 3rem;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-prev {
+  left: 2rem;
+}
+
+.lightbox-next {
+  right: 2rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-menu a.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Responsive Galerie */
+@media (max-width: 768px) {
+  .gallery-title {
+    font-size: 2.5rem;
+  }
+
+  .gallery-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gallery-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .lightbox-prev {
+    left: 1rem;
+  }
+
+  .lightbox-next {
+    right: 1rem;
+  }
+
+  .lightbox-caption h3 {
+    font-size: 1.4rem;
+  }
+
+  .lightbox-caption p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-hero {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .gallery-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Solar Stats Grid */
+.solar-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 2px solid var(--dark-color);
+  margin-top: 3rem;
+  background: var(--white);
+}
+
+.stat-cell {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: 2px solid var(--dark-color);
+  border-bottom: 2px solid var(--dark-color);
+  min-height: 200px;
+}
+
+.stat-cell:nth-child(3n) {
+  border-right: none;
+}
+
+.stat-cell:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  line-height: 1;
+  font-family: "Helvetica Neue", "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+
+.unit {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.stat-desc {
+  font-size: 1rem;
+  color: var(--text-color);
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+/* Chart Cell Specifics */
+.chart-cell {
+  padding: 1rem;
+  align-items: stretch;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.bar {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.bar-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Helvetica Neue", "Oswald", sans-serif;
+  color: var(--dark-color);
+  white-space: nowrap;
+}
+
+/* Flag Gradients for Bars */
+.germany {
+  background: linear-gradient(to bottom, #000000 33%, #DD0000 33%, #DD0000 66%, #FFCE00 66%);
+}
+
+.spain {
+  background: linear-gradient(to bottom, #AA151B 25%, #F1BF00 25%, #F1BF00 75%, #AA151B 75%);
+}
+
+.france {
+  background: linear-gradient(to right, #0055A4 33%, #FFFFFF 33%, #FFFFFF 66%, #EF4135 66%);
+  border: 1px solid #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .solar-stats-grid {
+    grid-template-columns: 1fr;
+    border: none;
+    gap: 1rem;
+  }
+
+  .stat-cell {
+    border: 2px solid var(--dark-color);
+    border-radius: 8px;
+  }
+
+  .stat-cell:nth-child(3n) {
+    border-right: 2px solid var(--dark-color);
+  }
+
+  .stat-cell:nth-last-child(-n+3) {
+    border-bottom: 2px solid var(--dark-color);
   }
 }
