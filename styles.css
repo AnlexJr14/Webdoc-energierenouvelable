@@ -318,6 +318,17 @@ h6 {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-container a {
+  display: block;
+  cursor: pointer;
+}
+
+.image-container a:hover .article-image {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .image-caption {
@@ -470,6 +481,16 @@ h6 {
   font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.7;
+}
+
+.article-author {
+  text-align: right;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+  padding-right: 1rem;
 }
 
 .data-section {
