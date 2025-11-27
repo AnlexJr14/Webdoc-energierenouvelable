@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Face Lumière : L'énergie de demain</title>
+    <link rel="stylesheet" href="../CSS/page.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
 </head>
-
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo"><img src="./img/Logo-Webdoc.png" alt="Logo navbar"></a>
-            <ul class="nav-menu">
-                <li><a href="#intro">Introduction</a></li>
-                <li><a href="#article1">Autonomie Énergétique</a></li>
-                <li><a href="#data">Données</a></li>
-                <li><a href="#article2">Transition en France</a></li>
-                <li><a href="gallery.html">Galerie</a></li>
-            </ul>
+
+    <header class="le-monde-header">
+        <div class="header-container">
+            
+            <a href="#" class="brand-container">
+                <img src="../img/Logo-Webdoc.png" alt="Logo Face Lumière" class="logo-img">
+                <div class="brand-text">
+                    <span class="site-title">Face Lumière</span>
+                    <span class="site-subtitle">L'énergie de demain</span>
+                </div>
+            </a>
+
+            <button class="burger-menu" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="../HTML/article1.html">Article 1</a></li>
+                    <li><a href="../HTML/article2.html">Article 2</a></li>
+                    <li><a href="../HTML/gallery.html">Galerie Photo</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <section class="intro-section" id="intro">
         <div class="container">
@@ -560,7 +575,9 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/page.js"></script>
+
 </body>
 
 </html>
