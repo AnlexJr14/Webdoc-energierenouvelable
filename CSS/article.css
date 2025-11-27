@@ -1,10 +1,21 @@
+:root {
+    --white: #e7e7e7
+}
+
 /* --- LAYOUT ARTICLE --- */
 .article-section {
-    padding: 2rem 0;
     background: var(--white);
 }
 
-.article { max-width: 800px; margin: 0 auto; }
+.article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container {
+    background-color: white;
+    padding-bottom: 0.5rem;
+}
 
 .article-category {
     display: inline-block;
