@@ -1,16 +1,106 @@
+/* --- LAYOUT ARTICLE --- */
+.article-section {
+    padding: 2rem 0;
+    background: var(--white);
+}
+
+.article { max-width: 800px; margin: 0 auto; }
+
+.article-category {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 1.5rem 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.article-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+}
+
+.article-chapeau {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: var(--dark-color);
+    margin-top: -10px;
+}
+
+.article-author, .article-date {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-content {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.article-content p { margin-bottom: 1.5rem; }
+.article-content h3 { font-size: 1.8rem; font-weight: 800; margin: 3rem 0 1.5rem; color: var(--dark-color); }
+.subtitle-text { font-style: italic; color: var(--text-light); margin-top: -1rem; margin-bottom: 2rem; }
+
+/* --- IMAGES & MEDIA --- */
+.image-container { margin: 3rem 0; }
+.article-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); }
+.image-caption { text-align: center; font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: 1rem; }
+
+.video-container {
+    margin: 3rem 0;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--light-color);
+}
+.video-iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+/* --- QUOTES & INTERVIEW --- */
+.quote {
+    background: var(--light-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 2rem;
+    margin: 3rem 0;
+    font-style: italic;
+}
+.quote p { font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark-color); }
+.quote cite { display: block; text-align: right; font-size: 1rem; color: var(--text-light); }
+
+.interview-section {
+    background: var(--light-color);
+    padding: 3rem;
+    margin: 3rem 0;
+    border-radius: 8px;
+}
+
+.article-conclusion {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem;
+    margin: 3rem 0;
+    border-radius: 8px;
+}
+
+/* --- BOUTONS & PARTAGE (Top Bar) --- */
 .top-bar {
     display: flex;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 30px;
     gap: 10px;
 }
-
-.container {
-    background-color: white;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
 
 .btn-pill {
     background: white;
@@ -26,42 +116,26 @@
     transition: all 0.3s ease;
 }
 
-.btn-pill.saved {
-    background-color: #FFD700;
-    color: #000;
-    border-color: #FFD700;
-}
+.btn-pill.saved { background-color: #FFD700; color: #000; border-color: #FFD700; }
+.btn-pill:hover, .btn-round:hover { background-color: #e9ecef; }
+
+.share-wrapper { position: relative; }
 
 .btn-round {
     background: #f8f9fa;
-    /* Fond très léger */
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     cursor: pointer;
-    font-size: 16px;
-    color: #555;
+    font-size: 16px; color: #555;
     transition: background 0.2s;
-}
-
-.btn-pill:hover,
-.btn-round:hover {
-    background-color: #e9ecef;
-}
-
-.share-wrapper {
-    position: relative;
 }
 
 .share-popup {
     display: none;
     position: absolute;
-    top: 50px;
-    left: 50%;
+    top: 50px; left: 50%;
     transform: translateX(-50%);
     background: white;
     padding: 15px;
@@ -69,93 +143,36 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     width: max-content;
     z-index: 100;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
+    flex-direction: row; align-items: center; gap: 12px;
     border: 1px solid #eee;
 }
 
-.share-popup.active {
-    display: flex;
-    animation: fadeIn 0.2s ease-out;
+.share-popup.active { display: flex; animation: fadeIn 0.2s ease-out; }
+.share-popup::before {
+    content: ""; position: absolute; top: -6px; left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px; border-style: solid;
+    border-color: transparent transparent white transparent;
 }
 
 .social-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #eee;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #555;
-    cursor: pointer;
-    transition: 0.2s;
-    text-decoration: none;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid #eee; background: white;
+    display: flex; justify-content: center; align-items: center;
+    color: #555; cursor: pointer; text-decoration: none; transition: 0.2s;
 }
-
-.social-btn:hover {
-    background-color: #f0f2f5;
-    color: #333;
-}
-
-.social-btn.fb:hover {
-    color: #1877f2;
-}
-
-.social-btn.li:hover {
-    color: #0077b5;
-}
+.social-btn:hover { background-color: #f0f2f5; color: #333; }
 
 .copy-link-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 14px;
-    color: #444;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-    outline: none;
-    min-width: 130px; 
-    justify-content: center;
+    display: flex; align-items: center; gap: 8px;
+    border: 1px solid #ddd; background: white;
+    border-radius: 20px; padding: 8px 16px;
+    font-size: 14px; color: #444; cursor: pointer;
+    white-space: nowrap; transition: all 0.2s ease;
 }
+.copy-link-btn.success { border-color: #2ecc71; color: #27ae60; background-color: #f0fff4; }
 
-.copy-link-btn:hover {
-    background-color: #f9f9f9;
-    border-color: #ccc;
-}
-
-.copy-link-btn.success {
-    border-color: #2ecc71;
-    color: #27ae60;
-    background-color: #f0fff4;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-}
-
-.share-popup::before {
-    content: "";
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 0 6px 6px 6px;
-    border-style: solid;
-    border-color: transparent transparent white transparent;
+@media (max-width: 768px) {
+    .article-title { font-size: 2rem; }
+    .interview-section { padding: 2rem; }
 }

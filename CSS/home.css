@@ -1,0 +1,145 @@
+/* --- INTRO SECTION --- */
+.intro-section {
+    padding: 6rem 0;
+    background: var(--light-color);
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+/* --- DATA SHOWCASE & STATS --- */
+.data-showcase {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.data-card {
+    background: var(--light-color);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.data-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.data-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.data-section {
+    padding: 6rem 0;
+    background: var(--light-color);
+}
+
+/* --- SOLAR STATS GRID (Le tableau avec drapeaux) --- */
+.solar-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid var(--dark-color);
+    margin-top: 3rem;
+    background: var(--white);
+}
+
+.stat-cell {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 2px solid var(--dark-color);
+    border-bottom: 2px solid var(--dark-color);
+    min-height: 200px;
+}
+
+.stat-cell:nth-child(3n) { border-right: none; }
+.stat-cell:nth-last-child(-n+3) { border-bottom: none; }
+
+.stat-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    line-height: 1;
+    font-family: "Helvetica Neue", "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+
+.unit { font-size: 2rem; font-weight: 400; }
+.stat-desc { font-size: 1rem; color: var(--text-color); max-width: 200px; }
+
+/* Chart Styling */
+.chart-cell { padding: 1rem; align-items: stretch; }
+.chart-container { display: flex; justify-content: space-around; align-items: flex-end; height: 100%; width: 100%; }
+.bar-group { display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; width: 30%; }
+.bar { width: 100%; margin-bottom: 0.5rem; }
+.bar-value { font-size: 1.2rem; font-weight: 700; font-family: "Helvetica Neue", sans-serif; color: var(--dark-color); }
+
+/* Drapeaux */
+.germany { background: linear-gradient(to bottom, #000 33%, #D00 33%, #D00 66%, #FC0 66%); }
+.spain { background: linear-gradient(to bottom, #AA151B 25%, #F1BF00 25%, #F1BF00 75%, #AA151B 75%); }
+.france { background: linear-gradient(to right, #0055A4 33%, #FFF 33%, #FFF 66%, #EF4135 66%); border: 1px solid #ddd; }
+
+/* --- ARTICLES PREVIEW CARDS --- */
+.articles-preview { padding: 80px 0; background-color: #ffffff; }
+.articles-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+
+.article-card {
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+
+.article-img-wrapper { height: 250px; background-color: #eee; position: relative; overflow: hidden; }
+.article-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.article-card:hover .article-img-wrapper img { transform: scale(1.05); }
+
+.card-tag {
+    position: absolute; top: 20px; left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 15px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: bold; text-transform: uppercase;
+}
+
+.article-content-preview { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+.article-content-preview h3 { font-size: 1.5rem; margin-bottom: 15px; color: #111; }
+.read-more { font-weight: bold; color: #5c7c28; text-transform: uppercase; font-size: 0.9rem; margin-top: auto; }
+
+@media (max-width: 768px) {
+    .solar-stats-grid { grid-template-columns: 1fr; border: none; gap: 1rem; }
+    .stat-cell { border: 2px solid var(--dark-color); border-radius: 8px; }
+}
