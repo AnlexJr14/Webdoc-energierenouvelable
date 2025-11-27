@@ -5,6 +5,13 @@
     gap: 10px;
 }
 
+.container {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
 .btn-pill {
     background: white;
     border: 1px solid #ddd;
