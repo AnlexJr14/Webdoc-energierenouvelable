@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecteur Audio Vert</title>
+    <title>Webdoc Audio Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
         /* --- CSS --- */
         :root {
-            --primary-green: #00ff88; /* Vert Néon */
-            --dark-green: #00b862;
-            --bg-color: #1a1a1a;
-            --player-bg: #2d2d2d;
-            --text-color: #ffffff;
+            /* Palette "Renewable Energy" */
+            --doc-bg: #f4f4f4; /* Gris très clair/Papier */
+            --doc-card-bg: #ffffff;
+            --doc-text-main: #2c3e50;
+            --doc-primary: #2e5c46; /* Vert Forêt Profond */
+            --doc-accent: #7ab596;  /* Vert Sauge/Herbe */
+            --doc-highlight: #e6fcf5;
         }
 
         body {
@@ -20,166 +26,236 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: var(--bg-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--doc-bg);
+            font-family: 'Lato', sans-serif;
+            color: var(--doc-text-main);
         }
 
-        .audio-player {
-            background-color: var(--player-bg);
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 20px 30px;
-            width: 350px;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1); /* Lueur verte subtile */
+        /* Conteneur style "Carte Article" */
+        .webdoc-player {
+            display: flex;
+            background-color: var(--doc-card-bg);
+            width: 700px;
+            max-width: 95%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        /* Partie Image (Gauche) */
+        .player-visual {
+            width: 40%;
+            background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1000&auto=format&fit=crop'); /* Image éolienne/nature */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Filtre vert sur l'image */
+        .player-visual::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom right, rgba(46, 92, 70, 0.4), rgba(0,0,0,0.1));
+        }
+
+        /* Partie Contenu (Droite) */
+        .player-content {
+            width: 60%;
+            padding: 30px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            color: var(--text-color);
-        }
-
-        /* Titre ou Info Piste */
-        .track-info {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .track-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-green);
-            margin: 0;
-        }
-        .track-artist {
-            font-size: 0.9rem;
-            color: #aaa;
-            margin: 5px 0 0 0;
-        }
-
-        /* Contrôles Principaux */
-        .controls {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
         }
 
-        button#playBtn {
-            background-color: var(--primary-green);
+        /* Typographie Éditoriale */
+        .chapter-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--doc-accent);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .track-title {
+            font-family: 'Playfair Display', serif; /* Police titre journal */
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+            color: var(--doc-primary);
+            line-height: 1.2;
+        }
+
+        .track-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0 0 20px 0;
+            line-height: 1.5;
+        }
+
+        /* Contrôles */
+        .controls-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Bouton Play Personnalisé */
+        .btn-play {
+            background-color: var(--doc-primary);
+            color: white;
             border: none;
-            border-radius: 50%;
             width: 50px;
             height: 50px;
-            cursor: pointer;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(46, 92, 70, 0.3);
+            flex-shrink: 0;
         }
 
-        button#playBtn:hover {
+        .btn-play:hover {
             transform: scale(1.05);
-            background-color: var(--dark-green);
-            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+            background-color: #244a38;
         }
 
-        button#playBtn svg {
-            fill: var(--player-bg); /* Icône foncée sur fond vert */
-            width: 20px;
-            height: 20px;
+        .btn-play svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+            margin-left: 2px; /* Centrage optique */
+        }
+        .btn-play.playing svg {
+            margin-left: 0;
         }
 
-        /* Barres de progression (Range Sliders) */
+        /* Timeline Container */
+        .timeline {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Slider Custom */
         input[type="range"] {
             -webkit-appearance: none;
             width: 100%;
-            height: 5px;
-            background: #444;
-            border-radius: 5px;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
             outline: none;
             cursor: pointer;
+            position: relative;
         }
 
-        /* Couleur de la barre remplie (Astuce Webkit) */
+        /* La barre de progression colorée via JS */
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 15px;
-            height: 15px;
+            height: 12px;
+            width: 12px;
             border-radius: 50%;
-            background: var(--primary-green);
+            background: var(--doc-primary);
             cursor: pointer;
             transition: transform 0.1s;
-            border: 2px solid var(--player-bg);
-        }
-
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-
-        /* Zone de temps */
-        .time-display {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: #ccc;
-            margin-top: -10px;
-        }
-
-        /* Zone Volume */
-        .volume-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
+            margin-top: 0; /* Alignement */
         }
         
-        .volume-control svg {
-            fill: var(--primary-green);
-            width: 20px;
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
         }
 
+        /* Temps */
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 8px;
+            font-variant-numeric: tabular-nums; /* Empêche les chiffres de bouger */
+        }
+
+        /* Petit bouton Mute/Volume */
+        .btn-mute {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .btn-mute:hover { opacity: 1; }
+        .btn-mute svg { width: 18px; fill: var(--doc-text-main); }
+
+
+        /* Responsive Mobile */
+        @media (max-width: 600px) {
+            .webdoc-player {
+                flex-direction: column;
+                width: 320px;
+            }
+            .player-visual {
+                width: 100%;
+                height: 150px;
+            }
+            .player-content {
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="audio-player">
-        <div class="track-info">
-            <h2 class="track-title">Mon Audio Vert</h2>
-            <p class="track-artist">Artiste Inconnu</p>
-        </div>
+    <div class="webdoc-player">
+        <div class="player-visual"></div>
 
-        <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-
-        <input type="range" id="progress" value="0" min="0" step="1">
-        
-        <div class="time-display">
-            <span id="currentTime">00:00</span>
-            <span id="duration">00:00</span>
-        </div>
-
-        <div class="controls">
-            <div class="volume-control">
-                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-                <input type="range" id="volume" value="1" min="0" max="1" step="0.1" style="width: 80px;">
+        <div class="player-content">
+            <div>
+                <div class="chapter-tag">Avis d'un consommateur</div>
+                <h2 class="track-title">Arlette Ferreira</h2>
+                <p class="track-desc">Comment les vents marins redessinent la carte énergétique de la France. Analyse d'un tournant décisif.</p>
             </div>
 
-            <button id="playBtn">
-                <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
+            <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"></audio>
+
+            <div class="controls-wrapper">
+                <button id="playBtn" class="btn-play" aria-label="Lire">
+                    <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="iconPause" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+
+                <div class="timeline">
+                    <input type="range" id="progress" value="0" min="0" step="0.1">
+                    <div class="time-info">
+                        <span id="currentTime">00:00</span>
+                        <span id="duration">--:--</span>
+                    </div>
+                </div>
+
+                <button id="muteBtn" class="btn-mute" aria-label="Couper le son">
+                    <svg id="volIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
-        /* --- JAVASCRIPT --- */
         const audio = document.getElementById('audio');
         const playBtn = document.getElementById('playBtn');
-        const playIcon = document.getElementById('playIcon');
-        const pauseIcon = document.getElementById('pauseIcon');
+        const iconPlay = document.getElementById('iconPlay');
+        const iconPause = document.getElementById('iconPause');
         const progress = document.getElementById('progress');
         const currentTimeEl = document.getElementById('currentTime');
         const durationEl = document.getElementById('duration');
-        const volumeSlider = document.getElementById('volume');
+        const muteBtn = document.getElementById('muteBtn');
 
-        // 1. Gestion Lecture / Pause
+        // 1. Play / Pause
         playBtn.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
@@ -192,55 +268,63 @@
 
         function toggleIcons(isPlaying) {
             if (isPlaying) {
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
+                iconPlay.style.display = 'none';
+                iconPause.style.display = 'block';
+                playBtn.classList.add('playing');
             } else {
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
+                iconPlay.style.display = 'block';
+                iconPause.style.display = 'none';
+                playBtn.classList.remove('playing');
             }
         }
 
-        // 2. Mise à jour de la barre de progression et du temps
+        // 2. Progression
         audio.addEventListener('timeupdate', () => {
             const current = audio.currentTime;
             const duration = audio.duration;
-
-            // Évite NaN si l'audio n'est pas encore chargé
+            
             if (!isNaN(duration)) {
                 progress.value = (current / duration) * 100;
                 currentTimeEl.textContent = formatTime(current);
-                durationEl.textContent = formatTime(duration);
+                
+                // Astuce "Pro": Colorier la barre AVANT le curseur en vert
+                const val = (progress.value - progress.min) / (progress.max - progress.min) * 100;
+                progress.style.background = `linear-gradient(to right, #2e5c46 ${val}%, #e0e0e0 ${val}%)`;
             }
         });
 
-        // 3. Permettre à l'utilisateur de changer le temps (Scrubbing)
+        // 3. Scrubbing (Déplacement manuel)
         progress.addEventListener('input', () => {
             const duration = audio.duration;
             audio.currentTime = (progress.value / 100) * duration;
+            
+            // Mise à jour visuelle immédiate du slider
+            const val = (progress.value - progress.min) / (progress.max - progress.min) * 100;
+            progress.style.background = `linear-gradient(to right, #2e5c46 ${val}%, #e0e0e0 ${val}%)`;
         });
 
-        // 4. Gestion du Volume
-        volumeSlider.addEventListener('input', (e) => {
-            audio.volume = e.target.value;
+        // 4. Mute / Unmute
+        muteBtn.addEventListener('click', () => {
+            audio.muted = !audio.muted;
+            muteBtn.style.opacity = audio.muted ? '0.3' : '1';
         });
 
-        // 5. Réinitialiser le bouton quand l'audio est fini
-        audio.addEventListener('ended', () => {
-            toggleIcons(false);
-            progress.value = 0;
-            audio.currentTime = 0;
-        });
-
-        // 6. Configurer la durée max au chargement des métadonnées
+        // 5. Metadata chargée (Durée totale)
         audio.addEventListener('loadedmetadata', () => {
             durationEl.textContent = formatTime(audio.duration);
         });
+        
+        // Reset à la fin
+        audio.addEventListener('ended', () => {
+            toggleIcons(false);
+            progress.value = 0;
+            progress.style.background = `linear-gradient(to right, #2e5c46 0%, #e0e0e0 0%)`;
+        });
 
-        // Fonction utilitaire pour formater le temps (secondes -> MM:SS)
         function formatTime(seconds) {
             const min = Math.floor(seconds / 60);
             const sec = Math.floor(seconds % 60);
-            return `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
         }
     </script>
 </body>

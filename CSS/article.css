@@ -197,3 +197,141 @@
     .article-title { font-size: 2rem; }
     .interview-section { padding: 2rem; }
 }
+
+/* --- LECTEUR AUDIO WEBDOC (Style intégré) --- */
+:root {
+    --doc-card-bg: #ffffff;
+    --doc-text-main: #2c3e50;
+    --doc-primary: #2e5c46; /* Vert Forêt */
+    --doc-accent: #7ab596;  /* Vert Sauge */
+}
+
+.webdoc-player {
+    display: flex;
+    background-color: var(--doc-card-bg);
+    width: 100%; /* S'adapte à la largeur de l'article */
+    margin: 2rem 0; /* Espacement vertical */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+}
+
+.player-visual {
+    width: 35%;
+    /* Image générique de panneaux solaires pour le contexte */
+    background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.player-visual::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom right, rgba(46, 92, 70, 0.4), rgba(0,0,0,0.1));
+}
+
+.player-content {
+    width: 65%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chapter-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--doc-accent);
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.track-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin: 0 0 5px 0;
+    color: var(--doc-primary);
+    line-height: 1.2;
+}
+
+.track-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+}
+
+.controls-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-play {
+    background-color: var(--doc-primary);
+    color: white;
+    border: none;
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(46, 92, 70, 0.3);
+    flex-shrink: 0;
+}
+
+.btn-play:hover { transform: scale(1.05); background-color: #244a38; }
+.btn-play svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
+.btn-play.playing svg { margin-left: 0; }
+
+.timeline {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%; height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none; cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px; width: 12px;
+    border-radius: 50%;
+    background: var(--doc-primary);
+    cursor: pointer;
+    margin-top: 0;
+    transition: transform 0.1s;
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.3); }
+
+.time-info {
+    display: flex; justify-content: space-between;
+    font-size: 0.7rem; color: #888; margin-top: 6px;
+    font-family: 'Lato', sans-serif;
+}
+
+.btn-mute {
+    background: none; border: none; cursor: pointer;
+    padding: 5px; opacity: 0.5; transition: opacity 0.2s;
+}
+.btn-mute:hover { opacity: 1; }
+.btn-mute svg { width: 18px; fill: var(--doc-text-main); }
+
+@media (max-width: 600px) {
+    .webdoc-player { flex-direction: column; }
+    .player-visual { width: 100%; height: 120px; }
+    .player-content { width: 100%; padding: 20px; }
+}
