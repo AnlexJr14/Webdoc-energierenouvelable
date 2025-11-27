@@ -62,6 +62,29 @@
                 <p class="article-author">Par <a href="#">Axel Treffault</a></p>
                 <p class="article-date">Publié le 24 Novembre 2025 à 17h56 | <i class="fa fa-clock"></i> Lecture 3 min.</p>
 
+                <div class="top-bar">
+                    <button class="btn-pill" id="readLaterBtn" data-id="article_2">
+                        <i class="fa-regular fa-bookmark"></i>
+                        Lire plus tard
+                    </button>
+
+                    <div class="share-wrapper">
+                        <button class="btn-round" id="shareTrigger">
+                            <i class="fa-solid fa-share"></i>
+                        </button>
+
+                        <div class="share-popup" id="shareMenu">
+                            <a href="mailto:test.mail@gmail.com" class="social-btn"><i class="fa-regular fa-envelope"></i></a> 
+                            <a href="https://www.linkedin.com/" class="social-btn li" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+
+                            <button class="copy-link-btn" onclick="copierLien(this)">
+                                <i class="fa-solid fa-link"></i>
+                                Copier le lien
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="image-container">
                     <img src="https://www.notre-planete.info/actualites/images/energie_solaire/centrale-solaire-Cestas.jpg"
                         alt="Paysage avec panneaux solaires photovoltaïques" class="article-image">
@@ -273,6 +296,7 @@
 
     <script src="../JS/script.js"></script>
     <script src="../JS/page.js"></script>
+    <script src="../JS/article.js"></script>
 
 </body>
 
