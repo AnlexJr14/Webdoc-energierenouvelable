@@ -47,6 +47,10 @@
         </div>
     </header>
 
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
     <section class="article-section" id="article1">
         <div class="container">
             <article class="article">
@@ -295,6 +299,17 @@
     <script src="../JS/script.js"></script>
     <script src="../JS/page.js"></script>
     <script src="../JS/article.js"></script>
+    
+    <script>
+        window.onscroll = function() {progressBarScroll()};
+
+        function progressBarScroll() {
+          var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrolled = (winScroll / height) * 100;
+          document.getElementById("myBar").style.width = scrolled + "%";
+        }
+    </script>
 
 </body>
 

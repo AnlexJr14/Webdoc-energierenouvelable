@@ -335,3 +335,21 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.3); }
     .player-visual { width: 100%; height: 120px; }
     .player-content { width: 100%; padding: 20px; }
 }
+
+/* --- SCROLL PROGRESS BAR --- */
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: #f1f1f1;
+    position: fixed;
+    top: 70px; /* Juste sous le header (qui fait 70px) */
+    left: 0;
+    z-index: 998; /* Sous le header mais au-dessus du contenu */
+}
+
+.progress-bar {
+    height: 4px;
+    background: linear-gradient(to right, #2e5c46, #7ab596); /* Vos couleurs vertes */
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
