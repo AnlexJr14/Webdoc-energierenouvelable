@@ -96,5 +96,9 @@ document.querySelectorAll(".data-card").forEach((card) => {
 	dataObserver.observe(card)
 })
 
-console.log("[v0] Webdoc loaded successfully")
-console.log("[v0] All interactive features initialized")
+document.addEventListener('contextmenu', function(e) {
+	// Si l'élément cliqué est une image, on bloque le menu
+	if (e.target.tagName === 'IMG') {
+		e.preventDefault();
+	}
+});
