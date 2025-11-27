@@ -1,0 +1,147 @@
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-pill {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-round {
+    background: #f8f9fa;
+    /* Fond très léger */
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    transition: background 0.2s;
+}
+
+.btn-pill:hover,
+.btn-round:hover {
+    background-color: #e9ecef;
+}
+
+.share-wrapper {
+    position: relative;
+}
+
+.share-popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: max-content;
+    z-index: 100;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #eee;
+}
+
+.share-popup.active {
+    display: flex;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.social-btn.fb:hover {
+    color: #1877f2;
+}
+
+.social-btn.li:hover {
+    color: #0077b5;
+}
+
+.copy-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    outline: none;
+    min-width: 130px; 
+    justify-content: center;
+}
+
+.copy-link-btn:hover {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+}
+
+.copy-link-btn.success {
+    border-color: #2ecc71;
+    color: #27ae60;
+    background-color: #f0fff4;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.share-popup::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}

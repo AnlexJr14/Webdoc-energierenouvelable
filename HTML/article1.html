@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Lumière : L'énergie de demain</title>
     <link rel="stylesheet" href="../CSS/nav.css">
     <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/article.css">
     <link rel="icon" href="../img/Logo-Webdoc.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
+
 <body>
 
     <header class="header">
         <div class="header-container">
-            
+
             <a href="#" class="brand-container">
                 <img src="../img/Logo-Webdoc.png" alt="Logo Face Lumière" class="logo-img">
                 <div class="brand-text">
@@ -30,7 +33,7 @@
 
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../HTML/page.html" >Accueil</a></li>
+                    <li><a href="../HTML/page.html">Accueil</a></li>
                     <li><a href="#" class="active">Article 1</a></li>
                     <li><a href="../HTML/article2.html">Article 2</a></li>
                     <li><a href="../HTML/gallery.html">Galerie Photo</a></li>
@@ -55,7 +58,31 @@
                 </div>
 
                 <p class="article-author">Par <a href="#">Timéo Da Costa</a></p>
-                <p class="article-date">Publié le 25 Novembre 2025 à 14h44 | <i class="fa fa-clock"></i> Lecture 2 min.</p>
+                <p class="article-date">Publié le 25 Novembre 2025 à 14h44 | <i class="fa fa-clock"></i> Lecture 2 min.
+                </p>
+
+                <div class="top-bar">
+                    <button class="btn-pill">
+                        <i class="fa-regular fa-bookmark"></i>
+                        Lire plus tard
+                    </button>
+
+                    <div class="share-wrapper">
+                        <button class="btn-round" id="shareTrigger">
+                            <i class="fa-solid fa-share"></i>
+                        </button>
+
+                        <div class="share-popup" id="shareMenu">
+                            <a href="mailto:test.mail@gmail.com" class="social-btn"><i class="fa-regular fa-envelope"></i></a> 
+                            <a href="https://www.linkedin.com/" class="social-btn li"><i class="fa-brands fa-linkedin-in"></i></a>
+
+                            <button class="copy-link-btn" onclick="copierLien(this)">
+                                <i class="fa-solid fa-link"></i>
+                                Copier le lien
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="image-container">
                     <img src="/placeholder.svg?height=600&width=1200" alt="Panneaux solaires" class="article-image">
@@ -263,6 +290,7 @@
 
     <script src="../JS/script.js"></script>
     <script src="../JS/page.js"></script>
+    <script src="../JS/article.js"></script>
 
 </body>
 
