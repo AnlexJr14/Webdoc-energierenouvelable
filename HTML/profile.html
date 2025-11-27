@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="./CSS/nav.css">
-    <link rel="stylesheet" href="./CSS/global.css">
+    <link rel="stylesheet" href="../CSS/nav.css">
+    <link rel="stylesheet" href="../CSS/global.css">
     
     <link rel="icon" href="../img/Logo-Webdoc.png">
 
@@ -32,6 +32,15 @@
             color: var(--text-main);
             font-family: 'Lato', sans-serif;
             margin: 0;
+        }
+
+        img {
+            /* Empêche de glisser-déposer l'image sur le bureau */
+            -webkit-user-drag: none;
+            user-drag: none;
+            /* Empêche la sélection bleue quand on clique dessus */
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         /* En-tête de la page */
@@ -77,7 +86,7 @@
             gap: 60px;
         }
 
-        /* Inverse l'ordre image/texte pour le 2ème profil (optionnel, supprimez "flex-direction" si vous voulez tout pareil) */
+        /* Inverse l'ordre image/texte pour le 2ème profil */
         .profile-section:nth-child(even) .container-profile {
             flex-direction: row-reverse;
         }
@@ -90,21 +99,35 @@
             position: relative;
         }
 
-        .profile-img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1/1; /* Force le format carré */
-            object-fit: cover;
-            border-radius: 12px;
+        /* --- CORRECTIF IMAGE --- */
+        .profile-img-container {
+            width: 300px; /* Taille du cercle */
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden; /* Coupe ce qui dépasse */
+            margin: 0 auto 25px auto;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
-            filter: grayscale(20%); /* Petit effet artistique (optionnel) */
-            transition: all 0.3s ease;
+            border: 3px solid var(--primary-green);
+            background-color: #f0f0f0; /* Fond gris si l'image n'est pas carrée */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* "contain" pour ne pas couper, "cover" pour remplir */
+            /* Pour votre photo rectangulaire, mettez object-fit: contain; si vous voulez voir toute l'image, mais ça laissera des bandes. 
+               Si vous voulez zoomer sans couper la tête, il faut recadrer l'image avant. 
+               Pour l'instant, je laisse 'cover' mais je centre l'image */
+            object-position: center top; /* Centre horizontalement, cale en haut verticalement */
+            transition: all 0.3s ease;
+        }
+        /* ---------------------- */
+
         .profile-visual:hover .profile-img {
-            filter: grayscale(0%);
-            transform: translateY(-5px);
+            transform: scale(1.05);
         }
 
         /* Les réseaux sociaux sous la photo */
@@ -207,8 +230,8 @@
 
     <header class="header">
         <div class="header-container">
-            <a href="./HTML/page.html" class="brand-container">
-                <img src="./img/Logo-Webdoc.png" alt="Logo Face Lumière" class="logo-img">
+            <a href="../HTML/page.html" class="brand-container">
+                <img src="../img/Logo-Webdoc.png" alt="Logo Face Lumière" class="logo-img">
                 <div class="brand-text">
                     <span class="site-title">Face Lumière</span>
                     <span class="site-subtitle">L'énergie de demain</span>
@@ -221,10 +244,10 @@
             </button>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="./HTML/page.html">Accueil</a></li>
-                    <li><a href="#" class="active">Article 1</a></li>
-                    <li><a href="./HTML/article2.html">Article 2</a></li>
-                    <li><a href="./HTML/gallery.html">Galerie Photo</a></li>
+                    <li><a href="../HTML/page.html">Accueil</a></li>
+                    <li><a href="../HTML/article1.html">Article 1</a></li>
+                    <li><a href="../HTML/article2.html">Article 2</a></li>
+                    <li><a href="../HTML/gallery.html">Galerie Photo</a></li>
                 </ul>
             </nav>
         </div>
@@ -240,12 +263,14 @@
             </p>
         </section>
 
-        <section class="profile-section">
+        <section class="profile-section" id="timeo">
             <div class="container-profile">
                 
                 <div class="profile-visual">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Timéo Da Costa" class="profile-img">
+                    <div class="profile-img-container">
+                        <img src="../img/proT.jpg" 
+                             alt="Timéo Da Costa" class="profile-img">
+                    </div>
                     
                     <div class="social-bar">
                         <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
@@ -289,12 +314,14 @@
         </section>
 
 
-        <section class="profile-section">
+        <section class="profile-section" id="axel">
             <div class="container-profile">
                 
                 <div class="profile-visual">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Nom de l'ami" class="profile-img">
+                    <div class="profile-img-container">
+                        <img src="../img/proA.jpg" 
+                             alt="Nom de l'ami" class="profile-img">
+                    </div>
                     
                     <div class="social-bar">
                         <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
@@ -305,7 +332,7 @@
                 <div class="profile-content">
                     <span class="role-tag">Direction Artistique & Montage</span>
                     
-                    <h2 class="profile-name">Prénom Nom</h2>
+                    <h2 class="profile-name">Axel Treffault</h2>
                     
                     <p class="bio-text">
                         Passionné par l'esthétique visuelle et le montage, je m'occupe de tout ce qui se voit à l'écran. 
@@ -340,5 +367,13 @@
     </main>
 
     <script src="../JS/script.js"></script>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            // Si l'élément cliqué est une image, on bloque le menu
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
