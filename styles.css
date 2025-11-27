@@ -143,12 +143,8 @@ h6 {
   align-items: center;
 }
 
-.nav-logo {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+.nav-logo img {
+  height: 75px;
 }
 
 .nav-menu {
@@ -271,14 +267,16 @@ h6 {
 }
 
 .article-title {
-  font-size: 2.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3rem;
+  font-weight: bolder;
   margin-bottom: 1.5rem;
   color: var(--dark-color);
 }
 
 .article-chapeau {
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.2rem;
-  font-style: italic;
   line-height: 1.7;
   color: var(--text-light);
   border-left: 4px solid var(--primary-color);
@@ -286,6 +284,7 @@ h6 {
 }
 
 .article-content {
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.1rem;
   line-height: 1.8;
 }
@@ -296,6 +295,7 @@ h6 {
 
 .article-content h3 {
   font-size: 1.8rem;
+  font-weight: 800;
   margin: 3rem 0 1.5rem;
   color: var(--dark-color);
 }
