@@ -41,6 +41,16 @@
     margin-bottom: 0.5rem;
 }
 
+.article-author a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.article-author a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
 .article-content {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.1rem;
