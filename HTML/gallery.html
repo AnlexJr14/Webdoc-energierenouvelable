@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Lumière : L'énergie de demain - Galerie Photo</title>
-    <link rel="stylesheet" href="../CSS/global.css">
+    <title>Galerie Photo - Face Lumière</title>
     <link rel="stylesheet" href="../CSS/nav.css">
     <link rel="stylesheet" href="../CSS/gallery.css">
-    <link rel="icon" href="../img/Logo-Webdoc.png">
 </head>
 <body>
-    <header class="header">
+    
+    <header class="header gallery-nav">
         <div class="header-container">
-            
             <a href="#" class="brand-container">
                 <img src="../img/Logo-Webdoc.png" alt="Logo Face Lumière" class="logo-img">
                 <div class="brand-text">
@@ -20,192 +18,122 @@
                     <span class="site-subtitle">L'énergie de demain</span>
                 </div>
             </a>
-
             <button class="burger-menu" aria-label="Ouvrir le menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
             <nav class="nav-links">
                 <ul>
                     <li><a href="../HTML/page.html">Accueil</a></li>
-                    <li><a href="../HTML/article1.html">Reportage</a></li>
+                    <li><a href="#" class="active">Reportage</a></li>
                     <li><a href="../HTML/article2.html">Analyse</a></li>
-                    <li><a href="#" class="active">Galerie Photo</a></li>
+                    <li><a href="../HTML/gallery.html">Galerie Photo</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="gallery-hero">
-        <div class="gallery-hero-content">
-            <h1 class="gallery-title">Galerie Photos</h1>
-            <p class="gallery-subtitle">Découvrez les visages et les lieux de la transition énergétique en France</p>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <div class="container">
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Toutes</button>
-                <button class="filter-btn" data-filter="panneaux">Panneaux Solaires</button>
-                <button class="filter-btn" data-filter="installations">Installations</button>
-                <button class="filter-btn" data-filter="paysages">Paysages</button>
-                <button class="filter-btn" data-filter="personnes">Personnes</button>
+    <div class="carousel">
+        <div class="list">
+            <div class="item">
+                <img src="../img/img1.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
             </div>
-
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Photo 1 -->
-                <div class="gallery-item" data-category="panneaux">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Panneaux solaires sur toit" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Panneaux solaires résidentiels</h3>
-                            <p class="gallery-item-caption">Installation photovoltaïque sur une maison en Drôme</p>
-                        </div>
+            <div class="item">
+                <img src="../img/img2.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
                     </div>
                 </div>
-
-                <!-- Photo 2 -->
-                <div class="gallery-item" data-category="installations">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Installation en cours" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Installation en cours</h3>
-                            <p class="gallery-item-caption">Pose de panneaux solaires par des professionnels</p>
-                        </div>
+            </div>
+            <div class="item">
+                <img src="../img/img3.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam.
+                    </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
                     </div>
                 </div>
-
-                <!-- Photo 3 -->
-                <div class="gallery-item" data-category="paysages">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Centrale solaire" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Centrale solaire</h3>
-                            <p class="gallery-item-caption">Parc photovoltaïque dans le sud de la France</p>
-                        </div>
+            </div>
+            <div class="item">
+                <img src="../img/img4.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div>
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam.
                     </div>
-                </div>
-
-                <!-- Photo 4 -->
-                <div class="gallery-item" data-category="personnes">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Famille avec panneaux solaires" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Famille autonome</h3>
-                            <p class="gallery-item-caption">Claire et Mathieu devant leur installation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 5 -->
-                <div class="gallery-item" data-category="panneaux">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Panneaux sur bâtiment public" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Bâtiment public équipé</h3>
-                            <p class="gallery-item-caption">École avec toiture solaire à Bordeaux</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 6 -->
-                <div class="gallery-item" data-category="installations">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Batterie de stockage" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Système de stockage</h3>
-                            <p class="gallery-item-caption">Batterie domestique pour l'autoconsommation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 7 -->
-                <div class="gallery-item" data-category="paysages">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Paysage avec panneaux" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Intégration paysagère</h3>
-                            <p class="gallery-item-caption">Panneaux solaires dans un environnement rural</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 8 -->
-                <div class="gallery-item" data-category="personnes">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Installateur" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Métier d'avenir</h3>
-                            <p class="gallery-item-caption">Roméo, installateur de panneaux solaires</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 9 -->
-                <div class="gallery-item" data-category="panneaux">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Panneaux sur maison moderne" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Architecture moderne</h3>
-                            <p class="gallery-item-caption">Maison contemporaine avec intégration solaire</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 10 -->
-                <div class="gallery-item" data-category="installations">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Contrôleur de production" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Suivi de production</h3>
-                            <p class="gallery-item-caption">Application de monitoring en temps réel</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 11 -->
-                <div class="gallery-item" data-category="paysages">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="Champ de panneaux" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Parc solaire</h3>
-                            <p class="gallery-item-caption">Vue aérienne d'une centrale photovoltaïque</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Photo 12 -->
-                <div class="gallery-item" data-category="personnes">
-                    <div class="gallery-item-inner">
-                        <img src="/placeholder.svg?height=600&width=800" alt="" class="gallery-image">
-                        <div class="gallery-overlay">
-                            <h3 class="gallery-item-title">Transition personnelle</h3>
-                            <p class="gallery-item-caption"></p>
-                        </div>
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-prev" id="lightboxPrev">&#8249;</button>
-        <button class="lightbox-next" id="lightboxNext">&#8250;</button>
-        <div class="lightbox-content">
-            <img src="" alt="" id="lightboxImage">
-            <div class="lightbox-caption">
-                <h3 id="lightboxTitle"></h3>
-                <p id="lightboxText"></p>
+        <div class="thumbnail">
+            <div class="item">
+                <img src="../img/img1.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="description">Description</div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../img/img2.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="description">Description</div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../img/img3.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="description">Description</div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="../img/img4.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="description">Description</div>
+                </div>
             </div>
         </div>
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <div class="time"></div>
     </div>
 
     <script src="../JS/gallery.js"></script>
 </body>
 </html>
-
