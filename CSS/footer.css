@@ -122,31 +122,6 @@
     gap: 10px;
 }
 
-.footer-socials {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 15px;
-}
-
-.footer-socials a {
-    color: var(--footer-white);
-    font-size: 1.2rem;
-    transition: color 0.3s;
-    background: rgba(255,255,255,0.1);
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    text-decoration: none;
-}
-
-.footer-socials a:hover {
-    background: var(--footer-accent);
-    color: white;
-}
-
 /* --- Footer Bottom --- */
 .footer-bottom {
     background-color: #111; /* Encore plus sombre */
@@ -176,10 +151,6 @@
     .footer-col h3::after {
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    .footer-socials {
-        justify-content: center;
     }
 
     .bottom-flex {
