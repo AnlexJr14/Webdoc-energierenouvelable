@@ -1,9 +1,9 @@
-/* --- INTRO SECTION --- */
-.intro-section {
-    padding: 6rem 0;
-    background: var(--light-color);
+/* --- CONFIGURATION GLOBALE DU SCROLL --- */
+html {
+    scroll-behavior: smooth; /* Permet le défilement fluide au clic */
 }
 
+/* --- INTRO SECTION --- */
 .intro-content {
     max-width: 800px;
     margin: 0 auto;
@@ -18,15 +18,53 @@
 
 /* --- DATA SHOWCASE & STATS --- */
 .data-showcase {
-    padding: 6rem 0;
+    padding: 2rem 0 6rem 0;
     background: var(--white);
 }
 
+/* --- STYLES DES TITRES (H1 Vert et H2 Gris/Souligné) --- */
+
+.main-data-title {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 0.5rem; 
+    line-height: 1.2;
+    padding: 0 1rem;
+}
+
+/* NOUVELLE CLASSE : section-subtitle 
+   S'applique à "Au-delà des idées reçues" ET "Importance du photovoltaïque..." */
+.section-subtitle {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #666; /* Gris */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--primary-color); /* Ligne verte */
+    display: inline-block; /* La ligne s'adapte à la longueur du texte */
+    padding-bottom: 10px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* On s'assure que les conteneurs centrent bien ces titres inline-block */
+.data-showcase .container,
+.data-section .container {
+    text-align: center;
+}
+
+
+/* --- DATA GRID --- */
 .data-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    text-align: left; /* Rétablit l'alignement gauche pour le contenu des cartes */
 }
 
 .data-card {
@@ -50,6 +88,11 @@
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+.data-label {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
 .data-section {
     padding: 6rem 0;
     background: var(--light-color);
@@ -62,6 +105,7 @@
     border: 2px solid var(--dark-color);
     margin-top: 3rem;
     background: var(--white);
+    text-align: center; /* Sécurité pour centrer le contenu */
 }
 
 .stat-cell {
@@ -76,24 +120,16 @@
     min-height: 200px;
 }
 
-/* --- CORRECTION ICI (Gestion des bordures) --- */
-
-/* Enlève la bordure droite tous les 3 éléments (fin de ligne 1 et 2) */
+/* GESTION DES BORDURES DE LA GRILLE */
 .stat-cell:nth-child(3n) { 
     border-right: none; 
 }
-
-/* Enlève la bordure du bas UNIQUEMENT pour les 2 derniers éléments (la dernière ligne) */
-/* C'était (-n+3) avant, mais comme on a fusionné des cellules, la dernière ligne ne compte plus que 2 éléments */
 .stat-cell:nth-last-child(-n+2) { 
     border-bottom: none; 
 }
-
-/* S'assure que le tout dernier élément (15 k€) n'a jamais de bordure à droite */
 .stat-cell:last-child { 
     border-right: none; 
 }
-
 
 .stat-value {
     font-size: 3.5rem;
@@ -109,24 +145,24 @@
 
 /* --- STYLE CELLULE FUSIONNÉE (Texte + Graph) --- */
 .merged-cell {
-    grid-column: span 2; /* Prend 2 colonnes */
+    grid-column: span 2; 
     display: flex;
-    flex-direction: row; /* Alignement horizontal */
-    align-items: flex-end; /* Aligne le bas du graph avec le reste */
+    flex-direction: row; 
+    align-items: flex-end; 
     justify-content: space-around;
     gap: 1rem;
-    padding-bottom: 0; /* Pour coller le graph en bas */
+    padding-bottom: 0; 
 }
 
 .merged-cell .stat-content {
-    margin-bottom: 2rem; /* Remonte un peu le texte pour le centrer verticalement */
+    margin-bottom: 2rem; 
     text-align: left;
     flex: 0 0 auto;
 }
 
 .merged-cell .chart-container {
     width: 60%;
-    height: 180px; /* Hauteur ajustée */
+    height: 180px; 
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -254,31 +290,25 @@
     line-height: 1.3;
 }
 
-/* --- LE CHAPEAU AVEC EFFET DEGRADER & ELLIPSIS --- */
 .article-content p {
     font-size: 1rem;
     line-height: 1.6;
     color: #555;
     margin-bottom: 25px;
-    
-    /* Coupe propre au bout de 3 lignes avec "..." */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    
-    /* Position relative pour accueillir le dégradé */
     position: relative;
 }
 
-/* Le dégradé blanc par-dessus */
 .article-content p::after {
     content: '';
     position: absolute;
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 50%; /* Hauteur du dégradé */
+    height: 50%;
     background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
     pointer-events: none;
 }
@@ -306,7 +336,6 @@
     .solar-stats-grid { grid-template-columns: 1fr; border: none; gap: 1rem; }
     .stat-cell { border: 2px solid var(--dark-color); border-radius: 8px; }
     
-    /* Sur mobile, on repasse la cellule fusionnée en colonne simple */
     .merged-cell {
         grid-column: span 1;
         flex-direction: column;
@@ -324,7 +353,6 @@
         margin-bottom: 0;
     }
     
-    /* Sur mobile, on peut autoriser une ligne de plus si besoin */
     .article-content p {
         -webkit-line-clamp: 4; 
     }
@@ -333,14 +361,14 @@
 /* --- SECTION AUTEURS (Miniatures) --- */
 .authors-preview {
     padding: 6rem 0;
-    background-color: #ffffff; /* Fond blanc pour contraster avec le gris des articles */
+    background-color: #ffffff; 
     border-top: 1px solid #eee;
 }
 
 .authors-intro {
     text-align: center;
     max-width: 600px;
-    margin: -2rem auto 3rem auto; /* Remonte un peu sous le titre */
+    margin: -2rem auto 3rem auto; 
     color: var(--text-light);
     font-size: 1.1rem;
     font-style: italic;
@@ -407,7 +435,7 @@
 }
 
 .author-info h3 {
-    font-family: 'Playfair Display', serif; /* Rappel du style profil */
+    font-family: 'Playfair Display', serif; 
     font-size: 1.3rem;
     color: var(--dark-color);
     margin-bottom: 5px;
@@ -454,4 +482,114 @@
         height: 120px;
         margin-bottom: 10px;
     }
+}
+
+
+/* --- INTRO SECTION EVOLUÉE --- */
+.intro-section {
+    padding: 4rem 0 1rem 0; 
+    background: linear-gradient(to bottom, #f9f9f9, var(--white)); 
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto 4rem auto; 
+}
+
+.main-title {
+    font-size: 3rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif; 
+}
+
+.intro-pillars {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.pillar-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 20px;
+}
+
+.pillar-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon {
+    transform: scale(1.1) rotate(10deg);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.pillar-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+.pillar-card p {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* --- FLÈCHE DE SCROLL (Mise à jour) --- */
+.scroll-indicator {
+    opacity: 0.7;
+    margin-top: 2rem;
+    display: block; /* Important car c'est maintenant un lien <a> */
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer; /* Le curseur change au survol */
+    transition: opacity 0.3s;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.scroll-indicator p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+    color: var(--dark-color);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .main-title { font-size: 2.2rem; }
+    .intro-pillars { gap: 2rem; }
+    .pillar-card { min-width: 100%; margin-bottom: 1rem; }
 }
