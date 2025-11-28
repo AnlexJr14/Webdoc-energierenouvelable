@@ -76,8 +76,24 @@
     min-height: 200px;
 }
 
-.stat-cell:nth-child(3n) { border-right: none; }
-.stat-cell:nth-last-child(-n+3) { border-bottom: none; }
+/* --- CORRECTION ICI (Gestion des bordures) --- */
+
+/* Enlève la bordure droite tous les 3 éléments (fin de ligne 1 et 2) */
+.stat-cell:nth-child(3n) { 
+    border-right: none; 
+}
+
+/* Enlève la bordure du bas UNIQUEMENT pour les 2 derniers éléments (la dernière ligne) */
+/* C'était (-n+3) avant, mais comme on a fusionné des cellules, la dernière ligne ne compte plus que 2 éléments */
+.stat-cell:nth-last-child(-n+2) { 
+    border-bottom: none; 
+}
+
+/* S'assure que le tout dernier élément (15 k€) n'a jamais de bordure à droite */
+.stat-cell:last-child { 
+    border-right: none; 
+}
+
 
 .stat-value {
     font-size: 3.5rem;
@@ -91,17 +107,69 @@
 .unit { font-size: 2rem; font-weight: 400; }
 .stat-desc { font-size: 1rem; color: var(--text-color); max-width: 200px; }
 
-/* Chart Styling */
-.chart-cell { padding: 1rem; align-items: stretch; }
-.chart-container { display: flex; justify-content: space-around; align-items: flex-end; height: 100%; width: 100%; }
-.bar-group { display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; width: 30%; }
-.bar { width: 100%; margin-bottom: 0.5rem; }
-.bar-value { font-size: 1.2rem; font-weight: 700; font-family: "Helvetica Neue", sans-serif; color: var(--dark-color); }
+/* --- STYLE CELLULE FUSIONNÉE (Texte + Graph) --- */
+.merged-cell {
+    grid-column: span 2; /* Prend 2 colonnes */
+    display: flex;
+    flex-direction: row; /* Alignement horizontal */
+    align-items: flex-end; /* Aligne le bas du graph avec le reste */
+    justify-content: space-around;
+    gap: 1rem;
+    padding-bottom: 0; /* Pour coller le graph en bas */
+}
 
-/* Drapeaux */
+.merged-cell .stat-content {
+    margin-bottom: 2rem; /* Remonte un peu le texte pour le centrer verticalement */
+    text-align: left;
+    flex: 0 0 auto;
+}
+
+.merged-cell .chart-container {
+    width: 60%;
+    height: 180px; /* Hauteur ajustée */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Graphique */
+.bar-group { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    height: 100%; 
+    justify-content: flex-end; 
+    width: 30%; 
+    position: relative;
+}
+
+.bar { 
+    width: 100%; 
+    border-radius: 4px 4px 0 0; 
+    margin-bottom: 5px;
+}
+
+.bar-value { 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.flag-label {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Couleurs des barres */
 .germany { background: linear-gradient(to bottom, #000 33%, #D00 33%, #D00 66%, #FC0 66%); }
 .spain { background: linear-gradient(to bottom, #AA151B 25%, #F1BF00 25%, #F1BF00 75%, #AA151B 75%); }
-.france { background: linear-gradient(to right, #0055A4 33%, #FFF 33%, #FFF 66%, #EF4135 66%); border: 1px solid #ddd; }
+.france { 
+    background: linear-gradient(to right, #0055A4 33%, #FFF 33%, #FFF 66%, #EF4135 66%); 
+    border: 1px solid #ddd; 
+}
+
 
 
 /* --- ARTICLES PREVIEW CARDS (Style Webdoc) --- */
@@ -237,6 +305,24 @@
 @media (max-width: 768px) {
     .solar-stats-grid { grid-template-columns: 1fr; border: none; gap: 1rem; }
     .stat-cell { border: 2px solid var(--dark-color); border-radius: 8px; }
+    
+    /* Sur mobile, on repasse la cellule fusionnée en colonne simple */
+    .merged-cell {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .merged-cell .chart-container {
+        width: 100%;
+    }
+
+    .merged-cell .stat-content {
+        text-align: center;
+        margin-bottom: 0;
+    }
     
     /* Sur mobile, on peut autoriser une ligne de plus si besoin */
     .article-content p {
