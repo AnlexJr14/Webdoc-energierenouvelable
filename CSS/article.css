@@ -1,5 +1,9 @@
 :root {
-    --white: #e7e7e7
+    --white: #e7e7e7;
+    --doc-card-bg: #ffffff;
+    --doc-text-main: #2c3e50;
+    --doc-primary: #2e5c46; /* Vert Forêt */
+    --doc-accent: #7ab596;  /* Vert Sauge */
 }
 
 /* --- LAYOUT ARTICLE --- */
@@ -19,7 +23,7 @@
 
 .article-category {
     display: inline-block;
-    background: var(--secondary-color);
+    background: var(--doc-primary);
     color: var(--white);
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
@@ -91,7 +95,7 @@
 /* --- QUOTES & INTERVIEW --- */
 .quote {
     background: var(--light-color);
-    border-left: 4px solid var(--accent-color);
+    border-left: 4px solid var(--doc-primary);
     padding: 2rem;
     margin: 3rem 0;
     font-style: italic;
@@ -107,7 +111,7 @@
 }
 
 .article-conclusion {
-    background: var(--primary-color);
+    background: var(--doc-primary);
     color: var(--white);
     padding: 3rem;
     margin: 3rem 0;
@@ -196,14 +200,6 @@
 @media (max-width: 768px) {
     .article-title { font-size: 2rem; }
     .interview-section { padding: 2rem; }
-}
-
-/* --- LECTEUR AUDIO WEBDOC (Style intégré) --- */
-:root {
-    --doc-card-bg: #ffffff;
-    --doc-text-main: #2c3e50;
-    --doc-primary: #2e5c46; /* Vert Forêt */
-    --doc-accent: #7ab596;  /* Vert Sauge */
 }
 
 .webdoc-player {

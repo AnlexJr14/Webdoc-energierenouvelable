@@ -5,8 +5,8 @@
     --footer-bg: #1a1a1a;       /* Gris très sombre (votre --dark-color) */
     --footer-text: #b0b0b0;     /* Gris clair pour le texte */
     --footer-white: #ffffff;    /* Blanc pour les titres */
-    --footer-accent: #2c5f2d;   /* Votre vert primaire */
-    --footer-hover: #97bc62;    /* Votre vert secondaire */
+    --footer-accent: #2e5c46;   /* Votre vert primaire */
+    --footer-hover: #2e5c46;    /* Votre vert secondaire */
 }
 
 .site-footer {
