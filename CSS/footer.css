@@ -161,18 +161,6 @@
     align-items: center;
 }
 
-.legal-links a {
-    color: var(--footer-text);
-    text-decoration: none;
-    margin-left: 20px;
-    transition: color 0.3s;
-}
-
-.legal-links a:hover {
-    color: var(--footer-hover);
-    text-decoration: underline;
-}
-
 /* --- Responsive --- */
 @media (max-width: 768px) {
     .site-footer > .footer-container {
@@ -198,9 +186,5 @@
         flex-direction: column;
         gap: 10px;
         text-align: center;
-    }
-
-    .legal-links a {
-        margin: 0 10px;
     }
 }
