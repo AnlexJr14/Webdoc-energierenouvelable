@@ -329,3 +329,129 @@
         -webkit-line-clamp: 4; 
     }
 }
+
+/* --- SECTION AUTEURS (Miniatures) --- */
+.authors-preview {
+    padding: 6rem 0;
+    background-color: #ffffff; /* Fond blanc pour contraster avec le gris des articles */
+    border-top: 1px solid #eee;
+}
+
+.authors-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: -2rem auto 3rem auto; /* Remonte un peu sous le titre */
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.authors-mini-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.author-mini-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid transparent; 
+    border-radius: 12px;           
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(#eee, #eee);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.author-mini-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        background-image: linear-gradient(#fff, #fff), linear-gradient(to right, #2e5c46, #7ab596);
+}
+
+/* Avatar rond */
+.author-avatar {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f5f5f5;
+    transition: border-color 0.3s;
+}
+
+.author-mini-card:hover .author-avatar {
+    border-color: var(--primary-color);
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* Infos Auteur */
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-info h3 {
+    font-family: 'Playfair Display', serif; /* Rappel du style profil */
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.author-role {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.author-desc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.link-arrow {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-top: auto;
+    transition: color 0.3s;
+}
+
+.author-mini-card:hover .link-arrow {
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .author-mini-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+    
+    .author-avatar {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+}

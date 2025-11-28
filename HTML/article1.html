@@ -134,15 +134,15 @@
                         </div>
 
                         <div class="video-container">
-                            <iframe class="video-iframe" src="https://www.youtube.com/embed/HxPn7YIDFCw"
+                            <iframe class="video-iframe" src="https://www.youtube-nocookie.com/embed/HxPn7YIDFCw"
                                 title="Témoignage Jean-Stéphane Panneaux Solaires" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                         </div>
                         <p class="image-caption">De 400€ à 160€ de facture : le bilan chiffré de Jean-Stéphane
-                                (Source : Monabee)</p>
-                       
+                            (Source : Monabee)</p>
+
 
                         <p>
                             Pour s'y retrouver, il utilise un petit "galet" lumineux connecté. C'est lui qui donne le
@@ -182,8 +182,9 @@
                             class="video-iframe">
                         </iframe>
                     </div>
-                    <p class="image-caption">Interview de Roméo sur l'avenir des énergies renouvelables (Source : Face Lumière)</p>
-                   
+                    <p class="image-caption">Interview de Roméo sur l'avenir des énergies renouvelables (Source : Face
+                        Lumière)</p>
+
                     <p>
                         Pour le professionnel, la priorité n'est pas tant l'autarcie individuelle que la disparition
                         des énergies fossiles qui persistent dans le réseau français.
@@ -282,12 +283,16 @@
 
                     <div class="article-conclusion">
                         <p>
-                            Alors, produire sa propre énergie : rêve d'ermite ou réalité économique ? La réponse se trouve probablement à mi-chemin.
-                            L'autonomie totale reste un défi technique et financier complexe, mais l'autonomie <em>partielle</em> est devenue une arme concrète contre l'inflation.
+                            Alors, produire sa propre énergie : rêve d'ermite ou réalité économique ? La réponse se
+                            trouve probablement à mi-chemin.
+                            L'autonomie totale reste un défi technique et financier complexe, mais l'autonomie
+                            <em>partielle</em> est devenue une arme concrète contre l'inflation.
                         </p>
                         <p>
-                            De la rigueur de Jean-Stéphane à la sérénité d'Arlette, une certitude émerge : la révolution n'est pas seulement sur les toits, elle est dans les têtes.
-                            Le consommateur passif, qui se contentait de payer sa facture, est en train de disparaître. À sa place, un "consom-acteur" averti prend le relais, 
+                            De la rigueur de Jean-Stéphane à la sérénité d'Arlette, une certitude émerge : la révolution
+                            n'est pas seulement sur les toits, elle est dans les têtes.
+                            Le consommateur passif, qui se contentait de payer sa facture, est en train de disparaître.
+                            À sa place, un "consom-acteur" averti prend le relais,
                             non pas pour se couper du monde, mais pour en devenir un maillon plus résilient.
                         </p>
                     </div>
@@ -299,15 +304,15 @@
     <script src="../JS/script.js"></script>
     <script src="../JS/page.js"></script>
     <script src="../JS/article.js"></script>
-    
+
     <script>
-        window.onscroll = function() {progressBarScroll()};
+        window.onscroll = function () { progressBarScroll() };
 
         function progressBarScroll() {
-          var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          var scrolled = (winScroll / height) * 100;
-          document.getElementById("myBar").style.width = scrolled + "%";
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
         }
     </script>
 
