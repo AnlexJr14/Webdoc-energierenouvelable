@@ -11,10 +11,10 @@ body{
 /* carousel */
 .carousel{
     height: 100vh;
-    width: 100%; /* Changé de 100vw à 100% pour éviter le scroll horizontal */
+    width: 100%;
     overflow: hidden;
     position: relative;
-    margin-top: 0; /* Suppression de la marge négative, gérée par le header absolute */
+    margin-top: 0;
 }
 
 .carousel .list .item{
@@ -51,7 +51,7 @@ body{
     line-height: 1.3em;
 }
 .carousel .list .item .topic{
-    color: #f1683a;
+    color: #27ae60;
 }
 .carousel .list .item .buttons{
     display: grid;
@@ -222,7 +222,7 @@ body{
     z-index: 1000;
     width: 0%;
     height: 3px;
-    background-color: #f1683a;
+    background-color: #27ae60;
     left: 0;
     top: 0;
 }
@@ -296,43 +296,42 @@ body{
 /* --- OVERRIDE POUR LA NAVBAR TRANSPARENTE (Galerie uniquement) --- */
 
 .header.gallery-nav {
-    position: absolute; /* Place la nav au-dessus du carousel */
+    position: absolute; 
     background-color: transparent;
     border-bottom: none;
     box-shadow: none;
     width: 100%;
 }
 
-/* Texte en blanc avec ombre pour lisibilité sur image */
-.header.gallery-nav .site-title {
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-}
-
-.header.gallery-nav .site-subtitle {
-    color: #ddd; /* Gris très clair */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-}
-
+/* Texte en blanc */
+.header.gallery-nav .site-title,
+.header.gallery-nav .site-subtitle,
 .header.gallery-nav .nav-links a {
     color: #fff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 .header.gallery-nav .nav-links a:hover {
-    color: #005f9e; /* Garde la couleur de survol */
+    color: #005f9e;
 }
 
 .header.gallery-nav .burger-menu span {
-    background-color: #fff; /* Burger blanc */
+    background-color: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Attention: sur mobile, quand le menu s'ouvre, il a un fond blanc (défini dans nav.css).
-   Il faut donc remettre les liens en noir si on est sur mobile */
+/* --- CORRECTION MOBILE : Menu déroulant transparent/sombre --- */
 @media (max-width: 768px) {
+    /* On change le fond du menu (qui était blanc) en noir transparent */
+    .header.gallery-nav .nav-links {
+        background-color: transparent; /* Noir à 85% d'opacité */
+        backdrop-filter: blur(5px); /* Petit effet de flou derrière le menu */
+        border-bottom: none;
+    }
+
+    /* On garde les liens en blanc (puisque le fond est devenu noir) */
     .header.gallery-nav .nav-links a {
-        color: #333;
-        text-shadow: none;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 }

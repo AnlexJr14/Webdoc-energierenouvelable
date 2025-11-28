@@ -1,0 +1,206 @@
+/* --- FOOTER STYLES --- */
+
+/* Variables locales basées sur votre global.css */
+:root {
+    --footer-bg: #1a1a1a;       /* Gris très sombre (votre --dark-color) */
+    --footer-text: #b0b0b0;     /* Gris clair pour le texte */
+    --footer-white: #ffffff;    /* Blanc pour les titres */
+    --footer-accent: #2c5f2d;   /* Votre vert primaire */
+    --footer-hover: #97bc62;    /* Votre vert secondaire */
+}
+
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 0 0 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    border-top: 4px solid var(--footer-accent); /* Rappel de la couleur principale */
+    margin-top: auto; /* Pousse le footer en bas si la page est courte */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Grille principale */
+.site-footer > .footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* --- Colonne 1 : Marque --- */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1); /* Rend le logo blanc s'il est noir/transparent */
+}
+
+.footer-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    color: var(--footer-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.footer-subtitle {
+    font-size: 0.8rem;
+    color: var(--footer-hover);
+    text-transform: uppercase;
+}
+
+.footer-desc {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    max-width: 350px;
+}
+
+/* --- Colonnes 2 & 3 : Titres --- */
+.footer-col h3 {
+    color: var(--footer-white);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--footer-hover);
+}
+
+/* --- Liens --- */
+.footer-links, .footer-authors {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-authors li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--footer-white);
+    transform: translateX(5px); /* Petit mouvement vers la droite */
+    color: var(--footer-hover);
+}
+
+/* --- Socials & Auteurs --- */
+.footer-authors li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-socials {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-socials a {
+    color: var(--footer-white);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    background: rgba(255,255,255,0.1);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    background: var(--footer-accent);
+    color: white;
+}
+
+/* --- Footer Bottom --- */
+.footer-bottom {
+    background-color: #111; /* Encore plus sombre */
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+    border-top: 1px solid #333;
+}
+
+.bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.legal-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.legal-links a:hover {
+    color: var(--footer-hover);
+    text-decoration: underline;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .site-footer > .footer-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-brand {
+        justify-content: center;
+    }
+
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .bottom-flex {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .legal-links a {
+        margin: 0 10px;
+    }
+}

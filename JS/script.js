@@ -102,3 +102,27 @@ document.addEventListener('contextmenu', function(e) {
 		e.preventDefault();
 	}
 });
+
+// Fonction pour charger le footer
+document.addEventListener("DOMContentLoaded", function() {
+    // On cherche l'élément placeholder
+    const footerPlaceholder = document.getElementById("footer-placeholder");
+    
+    if (footerPlaceholder) {
+        // On récupère le fichier footer.html
+        fetch("../HTML/footer.html")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erreur lors du chargement du footer");
+                }
+                return response.text();
+            })
+            .then(data => {
+                // On injecte le HTML
+                footerPlaceholder.innerHTML = data;
+            })
+            .catch(error => {
+                console.error("Problème avec le footer :", error);
+            });
+    }
+});
