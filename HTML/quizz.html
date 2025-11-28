@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Lumière : Le Quizz</title>
     <link rel="stylesheet" href="../CSS/nav.css">
+    <link rel="stylesheet" href="../CSS/quizz.css">
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="icon" href="../img/Logo-Webdoc.png">
 </head>
 <body>
     <header class="header">
@@ -23,14 +26,36 @@
             </button>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../HTML/page.html">Accueil</a></li>
-                    <li><a href="../HTML/article1.html">Reportage</a></li>
-                    <li><a href="../HTML/article2.html">Analyse</a></li>
-                    <li><a href="../HTML/gallery.html">Galerie Photo</a></li>
-                    <li><a href="#" class="active">Quizz</a></li>
+                    <li><a href="./page.html">Accueil</a></li>
+                    <li><a href="./article1.html">Reportage</a></li>
+                    <li><a href="./article2.html">Analyse</a></li>
+                    <li><a href="./gallery.html">Galerie Photo</a></li>
+                    <li><a href="#" class="btn-quizz">Quizz</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <section class="game-section" id="game">
+        <div class="container">
+            <h2 class="section-title">Testez vos connaissances !</h2>
+            
+            <div id="solarGame" class="game-card">
+                <div class="game-start-screen">
+                    <div class="game-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>Expert du solaire ou novice ?</h3>
+                    <p>Démêlez le vrai du faux en 4 questions rapides.</p>
+                    <button class="btn-start" onclick="startGame()">Commencer le Quiz</button>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../JS/quizz.js"></script>
+    <script src="../JS/script.js"></script>
+    
 </body>
 </html>

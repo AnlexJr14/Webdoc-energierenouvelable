@@ -1,0 +1,131 @@
+/* --- STYLE DU MINI-JEU --- */
+.game-section {
+    padding: 6rem 0;
+    background: linear-gradient(to bottom, var(--light-color), #fff);
+}
+
+.game-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px solid var(--light-color);
+    min-height: 300px; /* Évite que la boîte change trop de taille */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Écran d'accueil */
+.game-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.game-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.game-card p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Boutons */
+.btn-start, .btn-restart {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    font-weight: bold;
+}
+
+.btn-start:hover, .btn-restart:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Question en cours */
+.question-text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+    font-family: 'Playfair Display', serif;
+}
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.btn-answer {
+    padding: 20px;
+    border: 2px solid #eee;
+    background: white;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.btn-answer:hover {
+    border-color: var(--primary-color);
+    background-color: #f9fdfa;
+}
+
+.btn-true { color: #2e5c46; } /* Vert */
+.btn-false { color: #c0392b; } /* Rouge */
+
+/* Feedback (Réponse affichée) */
+.feedback-box {
+    animation: fadeIn 0.3s ease;
+}
+
+.feedback-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.correct { color: #27ae60; }
+.wrong { color: #c0392b; }
+
+.feedback-desc {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn-next {
+    background-color: var(--dark-color);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Barre de progression */
+.progress-game {
+    position: absolute;
+    top: 0; left: 0;
+    height: 6px;
+    background: var(--secondary-color);
+    width: 0%;
+    transition: width 0.3s;
+}

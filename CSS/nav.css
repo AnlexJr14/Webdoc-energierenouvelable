@@ -168,3 +168,31 @@ body {
         gap: 20px;
     }
 }
+
+/* --- STYLE SPÉCIFIQUE BOUTON QUIZZ --- */
+
+.nav-links a.btn-quizz {
+    background: linear-gradient(135deg, #2e5c46, #6db33f); /* Le même dégradé que votre logo */
+    color: white; /* Texte en blanc */
+    padding: 10px 25px; /* Espace interne pour donner du corps au bouton */
+    border-radius: 30px; /* Bords très arrondis (style pilule) */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(46, 92, 70, 0.2); /* Légère ombre portée */
+    transition: all 0.3s ease; /* Animation fluide */
+    
+    /* Annule le padding-bottom par défaut des autres liens */
+    padding-bottom: 10px; 
+}
+
+/* On désactive le soulignement (la barre verte) qui s'applique aux autres liens */
+.nav-links a.btn-quizz::after {
+    display: none;
+}
+
+/* Effet au survol du bouton */
+.nav-links a.btn-quizz:hover {
+    transform: translateY(-2px); /* Le bouton remonte légèrement */
+    box-shadow: 0 6px 12px rgba(46, 92, 70, 0.3); /* L'ombre s'accentue */
+    color: white; /* S'assure que le texte reste blanc */
+    filter: brightness(1.1); /* Éclaircit légèrement le bouton */
+}
