@@ -509,7 +509,8 @@ html {
     justify-content: center;
     gap: 3rem;
     flex-wrap: wrap;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
 }
 
 .pillar-card {

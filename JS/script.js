@@ -139,3 +139,17 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const logoLink = document.querySelector('.brand-container');
+
+    if (logoLink) {
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});

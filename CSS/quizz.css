@@ -1,131 +1,259 @@
-/* --- STYLE DU MINI-JEU --- */
+.main-data-title {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2.5rem; 
+    line-height: 1.2;
+    padding: 0 1rem;
+}
+
+/* --- STYLE GLOBAL DU QUIZZ --- */
 .game-section {
-    padding: 6rem 0;
-    background: linear-gradient(to bottom, var(--light-color), #fff);
+    padding: 3rem 0 3rem 0;
+    background-color: var(--light-color);
+    min-height: 70vh; /* Prend de la place sur l'écran */
+    display: flex;
+    align-items: center;
 }
 
 .game-card {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     background: #ffffff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    text-align: center;
-    border: 2px solid var(--light-color);
-    min-height: 300px; /* Évite que la boîte change trop de taille */
+    padding: 0; /* Padding géré par les enfants */
+    border-radius: 8px; /* Coins moins arrondis pour faire plus sérieux */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+    border-top: 5px solid var(--primary-color); /* Touche de couleur en haut */
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Écran d'accueil */
+/* --- ÉCRAN D'ACCUEIL --- */
+.game-start-screen {
+    padding: 3rem;
+    text-align: center;
+}
+
 .game-icon {
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
 }
 
-.game-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+.game-start-screen h3 {
+    font-family: "Georgia", serif;
+    font-size: 2rem;
     color: var(--dark-color);
+    margin-bottom: 1rem;
 }
 
-.game-card p {
-    font-size: 1.1rem;
+.game-start-screen p {
+    font-family: "Helvetica Neue", Arial, sans-serif;
     color: #666;
-    margin-bottom: 30px;
-}
-
-/* Boutons */
-.btn-start, .btn-restart {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 12px 30px;
+    margin-bottom: 2rem;
     font-size: 1.1rem;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-    font-weight: bold;
 }
 
-.btn-start:hover, .btn-restart:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.05);
+/* --- BARRE DE PROGRESSION --- */
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #f0f0f0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-/* Question en cours */
+.progress-game {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.5s ease-out;
+}
+
+/* --- CONTENU QUESTION --- */
+.quiz-content {
+    padding: 3rem 2rem;
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.question-counter {
+    display: block;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
 .question-text {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 30px;
+    font-family: "Georgia", serif;
+    font-size: 1.6rem;
     color: var(--dark-color);
-    font-family: 'Playfair Display', serif;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+    min-height: 70px; /* Évite les sauts de hauteur */
 }
 
+/* --- BOUTONS RÉPONSES --- */
 .answers-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
 .btn-answer {
-    padding: 20px;
-    border: 2px solid #eee;
-    background: white;
-    border-radius: 12px;
-    font-size: 1.2rem;
+    padding: 1.5rem;
+    background-color: transparent;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
     cursor: pointer;
-    transition: all 0.2s;
-    font-weight: bold;
-    color: var(--dark-color);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-answer .icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    transition: transform 0.3s;
 }
 
 .btn-answer:hover {
     border-color: var(--primary-color);
-    background-color: #f9fdfa;
+    background-color: #f9fffb;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.btn-true { color: #2e5c46; } /* Vert */
-.btn-false { color: #c0392b; } /* Rouge */
+.btn-true:hover { color: var(--doc-primary); border-color: var(--doc-primary); }
+.btn-false:hover { color: #c0392b; border-color: #c0392b; }
 
-/* Feedback (Réponse affichée) */
+/* --- FEEDBACK (RÉSULTAT QUESTION) --- */
 .feedback-box {
-    animation: fadeIn 0.3s ease;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
+
+.feedback-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.icon-correct { background-color: var(--doc-primary); }
+.icon-wrong { background-color: #c0392b; }
 
 .feedback-title {
+    font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 1.5rem;
-    margin-bottom: 10px;
-    font-weight: bold;
+    margin-bottom: 1rem;
 }
-.correct { color: #27ae60; }
+.correct { color: var(--doc-primary); }
 .wrong { color: #c0392b; }
 
 .feedback-desc {
-    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 80%;
     line-height: 1.6;
 }
 
-.btn-next {
+.btn-next, .btn-restart, .btn-start {
     background-color: var(--dark-color);
     color: white;
+    padding: 12px 30px;
     border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    letter-spacing: 0.5px;
 }
 
-/* Barre de progression */
-.progress-game {
-    position: absolute;
-    top: 0; left: 0;
-    height: 6px;
-    background: var(--secondary-color);
-    width: 0%;
-    transition: width 0.3s;
+.btn-next:hover, .btn-restart:hover, .btn-start:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* --- ÉCRAN FINAL --- */
+.result-box {
+    text-align: center;
+    padding: 3rem;
+}
+
+.score-display {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: "Georgia", serif;
+    margin: 1.5rem 0;
+}
+
+.score-total {
+    font-size: 1.5rem;
+    color: #aaa;
+    font-weight: 400;
+}
+
+.result-message {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.result-submessage {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Animation simple */
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .game-card {
+        margin: 0 1rem;
+        min-height: auto;
+    }
+    
+    .question-text {
+        font-size: 1.5rem;
+    }
+
+    .answers-grid {
+        grid-template-columns: 1fr; /* Boutons l'un sous l'autre sur mobile */
+    }
 }
